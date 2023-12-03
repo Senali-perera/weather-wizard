@@ -3,7 +3,6 @@ import useComponentWidth from "../UseComponentWidth";
 import {CurrentUnitsType, CurrentWeatherType} from "../../views/WeatherView";
 
 const CurrentWeather = ({currentWeather, currentUnits}: {currentWeather:CurrentWeatherType, currentUnits:CurrentUnitsType}) => {
-    console.log(currentWeather)
     const {componentHeight, componentRef} = useComponentWidth();
 
     const weatherInfo = getWeatherInfo(currentWeather.weather_code, !!currentWeather.is_day);
