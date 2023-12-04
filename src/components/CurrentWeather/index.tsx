@@ -24,6 +24,8 @@ const CurrentWeather = ({currentWeather, currentUnits}: {currentWeather:CurrentW
                         <img className="object-fill max-w-[150px] max-h-[150px] w-full h-auto" src={weatherInfo.image}
                              alt=""/>
                         <div className="text-white"
+                             style={{fontSize: `${Math.floor(componentHeight / 20)}px`}}>Last Updated</div>
+                        <div className="text-white"
                              style={{fontSize: `${Math.floor(componentHeight / 16)}px`}}>{dateTime}</div>
                     </div>
                     <div className="flex flex-col justify-center">
