@@ -4,6 +4,7 @@ import CurrentWeather from "../../components/CurrentWeather";
 import DailyWeather from "../../components/DailyWeather";
 import HourlyWeather from "../../components/HourlyWeather";
 import SwitchUnitsButton from "../../components/SwitchUnitsButton";
+import RefreshButton from "../../components/RefreshButton";
 
 export type CurrentWeatherType = {
     time: string,
@@ -42,11 +43,20 @@ export type DailyUnitsType = {
     temperature_2m_min: string,
     weather_code: string
 };
+
 export type HourlyUnitsType = {
     time: string,
     temperature_2m: string,
     wind_speed_10m: string,
-}
+};
+
+export type DayWeatherType = {
+    time: string,
+    tempMax: number,
+    tempMin: number,
+    weatherCode: number,
+    unit: string
+};
 const WeatherView = () => {
     const [currentWeather, setCurrentWeather] = useState<CurrentWeatherType>();
     const [dailyWeather, setDailyWeather] = useState<DailyWeatherType>();
@@ -58,16 +68,7 @@ const WeatherView = () => {
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 1150);
 
     useEffect(() => {
-        fetchData().then((res) => {
-            setCurrentWeather(res.current)
-            setDailyWeather(res.daily)
-            setHourlyWeather(res.hourly)
-            setCurrentUnits(res.current_units)
-            setDailyUnits(res.daily_units)
-            setHourlyUnits(res.hourly_units)
-        }).catch((err) => {
-            console.error('Error:', err);
-        });
+        fetchData();
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 1150);
         };
@@ -81,7 +82,13 @@ const WeatherView = () => {
 
     const fetchData = async () => {
         /*TODO add type to response*/
-        return await fetchWeatherData(tempUnit);
+        const res = await fetchWeatherData(tempUnit);
+        setCurrentWeather(res.current)
+        setDailyWeather(res.daily)
+        setHourlyWeather(res.hourly)
+        setCurrentUnits(res.current_units)
+        setDailyUnits(res.daily_units)
+        setHourlyUnits(res.hourly_units)
     }
 
     console.log(currentWeather)
@@ -107,7 +114,8 @@ const WeatherView = () => {
                 {/* Content for Section C */}
                 {(hourlyWeather && hourlyUnits) &&
                     <HourlyWeather hourlyWeather={hourlyWeather} hourlyUnits={hourlyUnits}/>}
-                <div className="fixed bottom-4 right-4">
+                <div className="fixed flex bottom-4 right-4">
+                    <RefreshButton onClick={fetchData}/>
                     <SwitchUnitsButton
                         onToggle={() => {
                             setTempUnit(tempUnit == TemperatureUnits.CELSIUS ? TemperatureUnits.FAHRENHEIT : TemperatureUnits.CELSIUS)
