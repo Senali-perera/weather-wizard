@@ -1,12 +1,17 @@
-export const fetchWeatherData = async (tempUnit: TemperatureUnits = TemperatureUnits.CELSIUS) => {
-    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=65.01&longitude=25.47&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&temperature_unit=${tempUnit}`);
-    return await response.json();
-}
+export const fetchWeatherData = async (
+  tempUnit: TemperatureUnits = TemperatureUnits.CELSIUS,
+) => {
+  const response = await fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=65.01&longitude=25.47&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&temperature_unit=${tempUnit}`,
+  );
+  return await response.json();
+};
 
 export enum TemperatureUnits {
-    CELSIUS = 'celsius',
-    FAHRENHEIT = 'fahrenheit'
+  CELSIUS = "celsius",
+  FAHRENHEIT = "fahrenheit",
 }
+
 //Clear Sky Day and Night
 import ClearDayImage from "../assets/Day/0.png";
 import ClearNightImage from "../assets/Night/0.png";
@@ -120,124 +125,248 @@ import HeavyThunderstormHailDayImage from "../assets/Day/99.png";
 import HeavyThunderstormHailNightImage from "../assets/Night/99.png";
 
 export enum WeatherCodes {
-    CLEAR = 0,
-    MOSTLY_CLEAR = 1,
-    PARTLY_CLOUDY = 2,
-    OVERCAST = 3,
-    MIST = 45,
-    FOG = 48,
-    LIGHT_DRIZZLE = 51,
-    MODERATE_DRIZZLE = 53,
-    HEAVY_DRIZZLE = 55,
-    LIGHT_FREEZING_DRIZZLE = 56,
-    HEAVY_FREEZING_DRIZZLE = 57,
-    SLIGHT_RAIN = 61,
-    MODERATE_RAIN = 63,
-    HEAVY_RAIN = 65,
-    LIGHT_FREEZING_RAIN = 66,
-    HEAVY_FREEZING_RAIN = 67,
-    SLIGHT_SNOW = 71,
-    MODERATE_SNOW = 73,
-    HEAVY_SNOW = 75,
-    SNOW_GRAINS = 77,
-    SLIGHT_RAIN_SHOWERS = 80,
-    MODERATE_RAIN_SHOWERS = 81,
-    VIOLENT_RAIN_SHOWERS = 82,
-    SLIGHT_SNOW_SHOWERS = 85,
-    HEAVY_SNOW_SHOWERS = 86,
-    THUNDERSTORM = 95,
-    SLIGHT_THUNDERSTORM_HAIL = 96,
-    HEAVY_THUNDERSTORM_HAIL = 99
+  CLEAR = 0,
+  MOSTLY_CLEAR = 1,
+  PARTLY_CLOUDY = 2,
+  OVERCAST = 3,
+  MIST = 45,
+  FOG = 48,
+  LIGHT_DRIZZLE = 51,
+  MODERATE_DRIZZLE = 53,
+  HEAVY_DRIZZLE = 55,
+  LIGHT_FREEZING_DRIZZLE = 56,
+  HEAVY_FREEZING_DRIZZLE = 57,
+  SLIGHT_RAIN = 61,
+  MODERATE_RAIN = 63,
+  HEAVY_RAIN = 65,
+  LIGHT_FREEZING_RAIN = 66,
+  HEAVY_FREEZING_RAIN = 67,
+  SLIGHT_SNOW = 71,
+  MODERATE_SNOW = 73,
+  HEAVY_SNOW = 75,
+  SNOW_GRAINS = 77,
+  SLIGHT_RAIN_SHOWERS = 80,
+  MODERATE_RAIN_SHOWERS = 81,
+  VIOLENT_RAIN_SHOWERS = 82,
+  SLIGHT_SNOW_SHOWERS = 85,
+  HEAVY_SNOW_SHOWERS = 86,
+  THUNDERSTORM = 95,
+  SLIGHT_THUNDERSTORM_HAIL = 96,
+  HEAVY_THUNDERSTORM_HAIL = 99,
 }
 
 export const getWeatherInfo = (weatherCode: number, isDay: boolean = true) => {
-    switch (weatherCode) {
-        case WeatherCodes.CLEAR: {
-            return { weatherCode, description: "Clear", image: isDay ? ClearDayImage : ClearNightImage }
-        }
-        case WeatherCodes.MOSTLY_CLEAR: {
-            return { weatherCode, description: "Mostly Clear", image: isDay ? MostlyClearDayImage : MostlyClearNightImage }
-        }
-        case WeatherCodes.PARTLY_CLOUDY: {
-            return { weatherCode, description: "Partly Cloudy", image: isDay ? PartlyCloudyDayImage : PartlyCloudyNightImage }
-        }
-        case WeatherCodes.OVERCAST: {
-            return { weatherCode, description: "Overcast", image: isDay ? OvercastDayImage : OvercastNightImage }
-        }
-        case WeatherCodes.MIST: {
-            return { weatherCode, description: "Mist", image: isDay ? MistDayImage : MistNightImage }
-        }
-        case WeatherCodes.FOG: {
-            return { weatherCode, description: "Fog", image: isDay ? FogDayImage : FogNightImage }
-        }
-        case WeatherCodes.LIGHT_DRIZZLE: {
-            return { weatherCode, description: "Light Drizzle", image: isDay ? LightDrizzleDayImage : LightDrizzleNightImage }
-        }
-        case WeatherCodes.MODERATE_DRIZZLE: {
-            return { weatherCode, description: "Moderate Drizzle", image: isDay ? ModerateDrizzleDayImage : ModerateDrizzleNightImage }
-        }
-        case WeatherCodes.HEAVY_DRIZZLE: {
-            return { weatherCode, description: "Heavy Drizzle", image: isDay ? HeavyDrizzleDayImage : HeavyDrizzleNightImage }
-        }
-        case WeatherCodes.LIGHT_FREEZING_DRIZZLE: {
-            return { weatherCode, description: "Freezing Drizzle", image: isDay ? LightFreezingDrizzleDayImage : LightFreezingDrizzleNightImage }
-        }
-        case WeatherCodes.HEAVY_FREEZING_DRIZZLE: {
-            return { weatherCode, description: "Freezing Drizzle", image: isDay ? HeavyFreezingDrizzleDayImage : HeavyFreezingDrizzleNightImage }
-        }
-        case WeatherCodes.SLIGHT_RAIN: {
-            return { weatherCode, description: "Slight Rain", image: isDay ? SlightRainDayImage : SlightRainNightImage }
-        }
-        case WeatherCodes.MODERATE_RAIN: {
-            return { weatherCode, description: "Rain", image: isDay ? ModerateRainDayImage : ModerateRainNightImage }
-        }
-        case WeatherCodes.HEAVY_RAIN: {
-            return { weatherCode, description: "Heavy Rain", image: isDay ? HeavyRainDayImage : HeavyRainNightImage }
-        }
-        case WeatherCodes.LIGHT_FREEZING_RAIN: {
-            return { weatherCode, description: "Freezing Rain", image: isDay ? LightFreezingRainDayImage : LightFreezingRainNightImage }
-        }
-        case WeatherCodes.HEAVY_FREEZING_RAIN: {
-            return { weatherCode, description: "Freezing Rain", image: isDay ? HeavyFreezingRainDayImage : HeavyFreezingRainNightImage }
-        }
-        case WeatherCodes.SLIGHT_SNOW: {
-            return { weatherCode, description: "Slight Snow", image: isDay ? SlightSnowDayImage : SlightSnowNightImage }
-        }
-        case WeatherCodes.MODERATE_SNOW: {
-            return { weatherCode, description: "Snow", image: isDay ? ModerateSnowDayImage : ModerateSnowNightImage }
-        }
-        case WeatherCodes.HEAVY_SNOW: {
-            return { weatherCode, description: "Heavy Snow", image: isDay ? HeavySnowDayImage : HeavySnowNightImage }
-        }
-        case WeatherCodes.SNOW_GRAINS: {
-            return { weatherCode, description: "Snow Grains", image: isDay ? SnowGrainsDayImage : SnowGrainsNightImage }
-        }
-        case WeatherCodes.SLIGHT_RAIN_SHOWERS: {
-            return { weatherCode, description: "Rain Showers", image: isDay ? SlightRainShowersDayImage : SlightRainShowersNightImage }
-        }
-        case WeatherCodes.MODERATE_RAIN_SHOWERS: {
-            return { weatherCode, description: "Rain Showers", image: isDay ? ModerateRainShowersDayImage : ModerateRainShowersNightImage }
-        }
-        case WeatherCodes.VIOLENT_RAIN_SHOWERS: {
-            return { weatherCode, description: "Rain Showers", image: isDay ? ViolentRainShowersDayImage : ViolentRainShowersNightImage }
-        }
-        case WeatherCodes.SLIGHT_SNOW_SHOWERS: {
-            return { weatherCode, description: "Snow Showers", image: isDay ? SlightSnowShowersDayImage : SlightSnowShowersNightImage }
-        }
-        case WeatherCodes.HEAVY_SNOW_SHOWERS: {
-            return { weatherCode, description: "Snow Showers", image: isDay ? HeavySnowShowersDayImage : HeavySnowShowersNightImage }
-        }
-        case WeatherCodes.THUNDERSTORM: {
-            return { weatherCode, description: "Thunderstorm", image: isDay ? ThunderstormDayImage : ThunderstormNightImage }
-        }
-        case WeatherCodes.SLIGHT_THUNDERSTORM_HAIL: {
-            return { weatherCode, description: "Thunderstorm Hail", image: isDay ? SlightThunderstormHailDayImage : SlightThunderstormHailNightImage }
-        }
-        case WeatherCodes.HEAVY_THUNDERSTORM_HAIL: {
-            return { weatherCode, description: "Thunderstorm Hail", image: isDay ? HeavyThunderstormHailDayImage : HeavyThunderstormHailNightImage }
-        }
-        default: {
-            return { weatherCode, description: "Invalid", image: ClearDayImage }
-        }
+  switch (weatherCode) {
+    case WeatherCodes.CLEAR: {
+      return {
+        weatherCode,
+        description: "Clear",
+        image: isDay ? ClearDayImage : ClearNightImage,
+      };
     }
-}
+    case WeatherCodes.MOSTLY_CLEAR: {
+      return {
+        weatherCode,
+        description: "Mostly Clear",
+        image: isDay ? MostlyClearDayImage : MostlyClearNightImage,
+      };
+    }
+    case WeatherCodes.PARTLY_CLOUDY: {
+      return {
+        weatherCode,
+        description: "Partly Cloudy",
+        image: isDay ? PartlyCloudyDayImage : PartlyCloudyNightImage,
+      };
+    }
+    case WeatherCodes.OVERCAST: {
+      return {
+        weatherCode,
+        description: "Overcast",
+        image: isDay ? OvercastDayImage : OvercastNightImage,
+      };
+    }
+    case WeatherCodes.MIST: {
+      return {
+        weatherCode,
+        description: "Mist",
+        image: isDay ? MistDayImage : MistNightImage,
+      };
+    }
+    case WeatherCodes.FOG: {
+      return {
+        weatherCode,
+        description: "Fog",
+        image: isDay ? FogDayImage : FogNightImage,
+      };
+    }
+    case WeatherCodes.LIGHT_DRIZZLE: {
+      return {
+        weatherCode,
+        description: "Light Drizzle",
+        image: isDay ? LightDrizzleDayImage : LightDrizzleNightImage,
+      };
+    }
+    case WeatherCodes.MODERATE_DRIZZLE: {
+      return {
+        weatherCode,
+        description: "Moderate Drizzle",
+        image: isDay ? ModerateDrizzleDayImage : ModerateDrizzleNightImage,
+      };
+    }
+    case WeatherCodes.HEAVY_DRIZZLE: {
+      return {
+        weatherCode,
+        description: "Heavy Drizzle",
+        image: isDay ? HeavyDrizzleDayImage : HeavyDrizzleNightImage,
+      };
+    }
+    case WeatherCodes.LIGHT_FREEZING_DRIZZLE: {
+      return {
+        weatherCode,
+        description: "Freezing Drizzle",
+        image: isDay
+          ? LightFreezingDrizzleDayImage
+          : LightFreezingDrizzleNightImage,
+      };
+    }
+    case WeatherCodes.HEAVY_FREEZING_DRIZZLE: {
+      return {
+        weatherCode,
+        description: "Freezing Drizzle",
+        image: isDay
+          ? HeavyFreezingDrizzleDayImage
+          : HeavyFreezingDrizzleNightImage,
+      };
+    }
+    case WeatherCodes.SLIGHT_RAIN: {
+      return {
+        weatherCode,
+        description: "Slight Rain",
+        image: isDay ? SlightRainDayImage : SlightRainNightImage,
+      };
+    }
+    case WeatherCodes.MODERATE_RAIN: {
+      return {
+        weatherCode,
+        description: "Rain",
+        image: isDay ? ModerateRainDayImage : ModerateRainNightImage,
+      };
+    }
+    case WeatherCodes.HEAVY_RAIN: {
+      return {
+        weatherCode,
+        description: "Heavy Rain",
+        image: isDay ? HeavyRainDayImage : HeavyRainNightImage,
+      };
+    }
+    case WeatherCodes.LIGHT_FREEZING_RAIN: {
+      return {
+        weatherCode,
+        description: "Freezing Rain",
+        image: isDay ? LightFreezingRainDayImage : LightFreezingRainNightImage,
+      };
+    }
+    case WeatherCodes.HEAVY_FREEZING_RAIN: {
+      return {
+        weatherCode,
+        description: "Freezing Rain",
+        image: isDay ? HeavyFreezingRainDayImage : HeavyFreezingRainNightImage,
+      };
+    }
+    case WeatherCodes.SLIGHT_SNOW: {
+      return {
+        weatherCode,
+        description: "Slight Snow",
+        image: isDay ? SlightSnowDayImage : SlightSnowNightImage,
+      };
+    }
+    case WeatherCodes.MODERATE_SNOW: {
+      return {
+        weatherCode,
+        description: "Snow",
+        image: isDay ? ModerateSnowDayImage : ModerateSnowNightImage,
+      };
+    }
+    case WeatherCodes.HEAVY_SNOW: {
+      return {
+        weatherCode,
+        description: "Heavy Snow",
+        image: isDay ? HeavySnowDayImage : HeavySnowNightImage,
+      };
+    }
+    case WeatherCodes.SNOW_GRAINS: {
+      return {
+        weatherCode,
+        description: "Snow Grains",
+        image: isDay ? SnowGrainsDayImage : SnowGrainsNightImage,
+      };
+    }
+    case WeatherCodes.SLIGHT_RAIN_SHOWERS: {
+      return {
+        weatherCode,
+        description: "Rain Showers",
+        image: isDay ? SlightRainShowersDayImage : SlightRainShowersNightImage,
+      };
+    }
+    case WeatherCodes.MODERATE_RAIN_SHOWERS: {
+      return {
+        weatherCode,
+        description: "Rain Showers",
+        image: isDay
+          ? ModerateRainShowersDayImage
+          : ModerateRainShowersNightImage,
+      };
+    }
+    case WeatherCodes.VIOLENT_RAIN_SHOWERS: {
+      return {
+        weatherCode,
+        description: "Rain Showers",
+        image: isDay
+          ? ViolentRainShowersDayImage
+          : ViolentRainShowersNightImage,
+      };
+    }
+    case WeatherCodes.SLIGHT_SNOW_SHOWERS: {
+      return {
+        weatherCode,
+        description: "Snow Showers",
+        image: isDay ? SlightSnowShowersDayImage : SlightSnowShowersNightImage,
+      };
+    }
+    case WeatherCodes.HEAVY_SNOW_SHOWERS: {
+      return {
+        weatherCode,
+        description: "Snow Showers",
+        image: isDay ? HeavySnowShowersDayImage : HeavySnowShowersNightImage,
+      };
+    }
+    case WeatherCodes.THUNDERSTORM: {
+      return {
+        weatherCode,
+        description: "Thunderstorm",
+        image: isDay ? ThunderstormDayImage : ThunderstormNightImage,
+      };
+    }
+    case WeatherCodes.SLIGHT_THUNDERSTORM_HAIL: {
+      return {
+        weatherCode,
+        description: "Thunderstorm Hail",
+        image: isDay
+          ? SlightThunderstormHailDayImage
+          : SlightThunderstormHailNightImage,
+      };
+    }
+    case WeatherCodes.HEAVY_THUNDERSTORM_HAIL: {
+      return {
+        weatherCode,
+        description: "Thunderstorm Hail",
+        image: isDay
+          ? HeavyThunderstormHailDayImage
+          : HeavyThunderstormHailNightImage,
+      };
+    }
+    default: {
+      return { weatherCode, description: "Invalid", image: ClearDayImage };
+    }
+  }
+};

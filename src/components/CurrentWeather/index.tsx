@@ -18,23 +18,23 @@ const CurrentWeather = ({currentWeather, currentUnits}: {currentWeather:CurrentW
     return (
         <>
             <div ref={componentRef}
-                 className="block rounded-lg bg-white dark:bg-neutral-700 h-full p-5">
+                 className="block bg-white rounded-lg shadow-lg border border-gray-300 h-full p-5">
                 <div className="flex h-full justify-center">
                     <div className="justify-center flex flex-col items-center mr-3">
                         <img className="object-fill max-w-[150px] max-h-[150px] w-full h-auto" src={weatherInfo.image}
                              alt=""/>
-                        <div className="text-white"
+                        <div
                              style={{fontSize: `${Math.floor(componentHeight / 20)}px`}}>Last Updated</div>
-                        <div className="text-white"
+                        <div
                              style={{fontSize: `${Math.floor(componentHeight / 16)}px`}}>{dateTime}</div>
                     </div>
                     <div className="flex flex-col justify-center">
-                        <div className={`font-bold text-white`}
+                        <div className={`font-bold`}
                              style={{fontSize: `${Math.floor(componentHeight / 5)}px`}}>{currentWeather["temperature_2m"]}{currentUnits["temperature_2m"]}</div>
-                        <div className={`text-white`}
+                        <div
                              style={{fontSize: `${Math.floor(componentHeight / 10)}px`}}>{weatherInfo.description}</div>
                         {/*<div className={`text-white`} style={{ fontSize: `${Math.floor(componentHeight / 16)}px` }}>H: 35ºC L: 25ºC</div>*/}
-                        <div className={`text-white`}
+                        <div
                              style={{fontSize: `${Math.floor(componentHeight / 15)}px`}}>Wind: {currentWeather.wind_speed_10m}{currentUnits.wind_speed_10m}</div>
                     </div>
                 </div>
