@@ -28,9 +28,10 @@ const DayCard = ({ weather }: { weather: DayWeatherType }) => {
       <div
         data-testid="todo-1"
         ref={componentRef}
-        className={`min-w-[120px] bg-white shadow-lg border border-gray-300 flex-1 rounded-lg flex flex-col justify-evenly`}
+        className={`min-w-[120px] bg-white shadow-lg border border-gray-300 flex-1 rounded-lg flex flex-col justify-evenly day-card`}
       >
         <div
+            id="day-card-date"
           className="text-center"
           style={{ fontSize: `${Math.floor(componentWidth / 10)}px` }}
         >
@@ -44,12 +45,14 @@ const DayCard = ({ weather }: { weather: DayWeatherType }) => {
           />
         </div>
         <div
+            id="day-card-weather-desc"
           className={`text-center`}
           style={{ fontSize: `${Math.floor(componentWidth / 10)}px` }}
         >
           {weatherData.description}
         </div>
         <div
+            id="day-card-min-max-temperature"
           className={`text-center`}
           style={{ fontSize: `${Math.floor(componentWidth / 12)}px` }}
         >

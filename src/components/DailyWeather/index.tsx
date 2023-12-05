@@ -19,7 +19,9 @@ const DailyWeather = ({
   }));
   return (
     <>
-      <div className="rounded-lg shadow-lg bg-white overflow-x-auto flex h-full gap-1">
+      <div
+          id="daily-weather"
+          className="rounded-lg shadow-lg bg-white overflow-x-auto flex h-full gap-1">
         {newMap.map((weather) => (
           <DayCard key={weather.time} weather={weather} />
         ))}

@@ -51,7 +51,7 @@ const WeatherChart = ({
   };
   return (
     <>
-      <div className="h-full">
+      <div className="h-full weather-chart">
         <HighchartsReact
           highcharts={Highcharts}
           options={chartOptions}

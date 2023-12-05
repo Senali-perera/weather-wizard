@@ -10,7 +10,9 @@ const HourlyWeather = ({
 }) => {
   return (
     <>
-      <div className="block rounded-lg bg-white shadow-lg border border-gray-300 h-full">
+      <div
+          id="hourly-weather"
+          className="block rounded-lg bg-white shadow-lg border border-gray-300 h-full">
         <WeatherChart hourlyWeather={hourlyWeather} hourlyUnits={hourlyUnits} />
       </div>
     </>
