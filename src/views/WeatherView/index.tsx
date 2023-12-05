@@ -82,13 +82,17 @@ const WeatherView = () => {
 
   const fetchData = async () => {
     /*TODO add type to response*/
-    const res = await fetchWeatherData(tempUnit);
-    setCurrentWeather(res.current);
-    setDailyWeather(res.daily);
-    setHourlyWeather(res.hourly);
-    setCurrentUnits(res.current_units);
-    setDailyUnits(res.daily_units);
-    setHourlyUnits(res.hourly_units);
+    try{
+      const res = await fetchWeatherData(tempUnit);
+      setCurrentWeather(res.current);
+      setDailyWeather(res.daily);
+      setHourlyWeather(res.hourly);
+      setCurrentUnits(res.current_units);
+      setDailyUnits(res.daily_units);
+      setHourlyUnits(res.hourly_units);
+    }catch (e) {
+      console.log(e)
+    }
   };
 
   return (
