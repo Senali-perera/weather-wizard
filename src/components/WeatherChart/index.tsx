@@ -1,6 +1,7 @@
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 import { HourlyUnitsType, HourlyWeatherType } from "../../views/WeatherView";
+import {HourlyWeatherFormator} from "../../utils/DateTimeUtils.tsx";
 
 const WeatherChart = ({
   hourlyWeather,
@@ -10,14 +11,7 @@ const WeatherChart = ({
   hourlyUnits: HourlyUnitsType;
 }) => {
   const formattedDates = hourlyWeather.time.map((item) => {
-    const parsedDate = new Date(item);
-
-    const options: Intl.DateTimeFormatOptions = {
-      month: "short",
-      day: "numeric",
-    };
-
-    return parsedDate.toLocaleDateString("en-US", options);
+    return HourlyWeatherFormator(item);
   });
 
   const chartOptions = {

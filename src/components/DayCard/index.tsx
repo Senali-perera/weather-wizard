@@ -1,25 +1,12 @@
 import useComponentWidth from "../UseComponentWidth";
 import { getWeatherInfo } from "../../utils";
 import { DayWeatherType } from "../../views/WeatherView";
+import {DailyWeatherFormator} from "../../utils/DateTimeUtils.tsx";
 
 const DayCard = ({ weather }: { weather: DayWeatherType }) => {
   const { componentWidth, componentRef } = useComponentWidth();
 
-  const parsedDate = new Date(weather.time);
-
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-  };
-
-  let formattedDate: string;
-
-  if (parsedDate.toDateString() === new Date().toDateString()) {
-    formattedDate = "Today";
-  } else {
-    formattedDate = parsedDate.toLocaleDateString("en-US", options);
-  }
+  const formattedDate = DailyWeatherFormator(weather.time)
 
   const weatherData = getWeatherInfo(weather.weatherCode); // Get the weather code data
 

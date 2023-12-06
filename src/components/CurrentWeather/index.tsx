@@ -1,13 +1,13 @@
 import {getWeatherInfo} from "../../utils";
 import useComponentWidth from "../UseComponentWidth";
 import {CurrentUnitsType, CurrentWeatherType} from "../../views/WeatherView";
-import {LongWeekdayHourMinConvertor} from "../../utils/DateTimeUtils.tsx";
+import {CurrentWeatherFormator} from "../../utils/DateTimeUtils.tsx";
 
 const CurrentWeather = ({currentWeather, currentUnits}: {currentWeather:CurrentWeatherType, currentUnits:CurrentUnitsType}) => {
     const {componentHeight, componentRef} = useComponentWidth();
 
     const weatherInfo = getWeatherInfo(currentWeather.weather_code, !!currentWeather.is_day);
-    const formattedDateTime = LongWeekdayHourMinConvertor(currentWeather.time);
+    const formattedDateTime = CurrentWeatherFormator(currentWeather.time);
 
     return (
         <>
