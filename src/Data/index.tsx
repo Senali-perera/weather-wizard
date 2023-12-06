@@ -238,3 +238,21 @@ export const dailyUnits = {
     temperature_2m_min: "°C",
     weather_code: "wmo code"
 }
+
+export const currentWeather = {
+    time: "2023-12-03T01:30",
+    interval: 900,
+    temperature_2m: -10.3,
+    weather_code: 3,
+    wind_speed_10m: 9,
+    is_day: 0
+}
+
+export const currentUnits = {
+    time: "iso8601",
+    interval: "seconds",
+    temperature_2m: "°C",
+    weather_code: "wmo code",
+    wind_speed_10m: "km/h",
+    is_day: ""
+}
