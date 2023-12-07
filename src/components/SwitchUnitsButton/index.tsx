@@ -14,7 +14,9 @@ const SwitchUnitsButton: React.FC<SwitchUnitsButtonProps> = ({ onToggle }) => {
 
   return (
     <>
-      <label className="themeSwitcherTwo shadow-card relative inline-flex cursor-pointer select-none items-center justify-center rounded-md bg-blue-300 p-1">
+      <label
+          id="unit-toggle"
+          className="themeSwitcherTwo shadow-card relative inline-flex cursor-pointer select-none items-center justify-center rounded-md bg-blue-300 p-1">
         <input
           type="checkbox"
           className="sr-only"
