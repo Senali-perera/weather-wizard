@@ -2,6 +2,8 @@
 
 This repository contains the React Application for **Weather Wizard** weather monitoring application.
 
+Live Preview: https://glittery-cuchufli-f1d210.netlify.app/
+
 ## Technical Stack
 - React
 - Tailwind CSS
