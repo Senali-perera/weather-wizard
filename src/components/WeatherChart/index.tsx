@@ -1,7 +1,7 @@
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
-import { HourlyUnitsType, HourlyWeatherType } from "../../views/WeatherView";
 import {HourlyWeatherFormator} from "../../utils/DateTimeUtils.tsx";
+import {HourlyUnitsType, HourlyWeatherType} from "../../utils/Types.tsx";
 
 const WeatherChart = ({
   hourlyWeather,

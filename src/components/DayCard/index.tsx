@@ -1,7 +1,7 @@
 import useComponentWidth from "../UseComponentWidth";
 import { getWeatherInfo } from "../../utils";
-import { DayWeatherType } from "../../views/WeatherView";
 import {DailyWeatherFormator} from "../../utils/DateTimeUtils.tsx";
+import {DayWeatherType} from "../../utils/Types.tsx";
 
 const DayCard = ({ weather }: { weather: DayWeatherType }) => {
   const { componentWidth, componentRef } = useComponentWidth();

@@ -1,5 +1,5 @@
 import WeatherChart from "../WeatherChart";
-import { HourlyUnitsType, HourlyWeatherType } from "../../views/WeatherView";
+import {HourlyUnitsType, HourlyWeatherType} from "../../utils/Types.tsx";
 
 const HourlyWeather = ({
   hourlyWeather,

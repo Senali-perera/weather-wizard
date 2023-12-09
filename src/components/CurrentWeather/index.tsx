@@ -1,7 +1,7 @@
 import {getWeatherInfo} from "../../utils";
 import useComponentWidth from "../UseComponentWidth";
-import {CurrentUnitsType, CurrentWeatherType} from "../../views/WeatherView";
 import {CurrentWeatherFormator} from "../../utils/DateTimeUtils.tsx";
+import {CurrentUnitsType, CurrentWeatherType} from "../../utils/Types.tsx";
 
 const CurrentWeather = ({currentWeather, currentUnits}: {currentWeather:CurrentWeatherType, currentUnits:CurrentUnitsType}) => {
     const {componentHeight, componentRef} = useComponentWidth();

@@ -1,5 +1,5 @@
-import { DailyUnitsType, DailyWeatherType } from "../../views/WeatherView";
 import DayCard from "../DayCard";
+import {DailyUnitsType, DailyWeatherType} from "../../utils/Types.tsx";
 
 const DailyWeather = ({
   dailyWeather,
