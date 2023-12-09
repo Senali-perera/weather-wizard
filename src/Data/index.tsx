@@ -1,4 +1,4 @@
-
+/*Sample data for weather object*/
 export const weather = {
     time: "2023-12-02",
     tempMax: -5,
@@ -7,6 +7,7 @@ export const weather = {
     unit: "°C"
 }
 
+/*Sample data for hourly weather object*/
 export const hourlyWeather = {
     time: [
         "2023-12-06T00:00",
@@ -212,12 +213,14 @@ export const hourlyWeather = {
     ],
 };
 
+/*Sample data for hourly units object*/
 export const hourlyUnits = {
     time: "iso8601",
     temperature_2m: "°C",
     wind_speed_10m: "km/h",
 };
 
+/*Sample data for daily weather object*/
 export const dailyWeather = {
     time: [
         "2023-12-02",
@@ -232,6 +235,7 @@ export const dailyWeather = {
     temperature_2m_min: [-9.9, -9.7, -8.8, -14.9, -13.6, -13.2, -14.9],
     weather_code: [71, 71, 71, 3, 3, 3, 3],
 };
+/*Sample data for daily units object*/
 export const dailyUnits = {
     time: "iso8601",
     temperature_2m_max: "°C",
@@ -239,6 +243,7 @@ export const dailyUnits = {
     weather_code: "wmo code"
 }
 
+/*Sample data for current weather object*/
 export const currentWeather = {
     time: "2023-12-03T01:30",
     interval: 900,
@@ -248,6 +253,7 @@ export const currentWeather = {
     is_day: 0
 }
 
+/*Sample data for current units object*/
 export const currentUnits = {
     time: "iso8601",
     interval: "seconds",

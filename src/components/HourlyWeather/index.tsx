@@ -1,9 +1,14 @@
 import WeatherChart from "../WeatherChart";
 import {HourlyUnitsType, HourlyWeatherType} from "../../utils/Types.tsx";
 
-/*Intro: This component shows the hourly details of a week
-* Props: hourlyWeather: HourlyWeatherType (Array of hourly weather details of a week)
-*        hourlyUnits: HourlyUnitsType (Measurement units of HourlyWeatherType parameters)*/
+/*
+* This component shows the hourly details of a week
+*
+* Props:
+*
+* hourlyWeather: HourlyWeatherType (Array of hourly weather details of a week)
+* hourlyUnits: HourlyUnitsType (Measurement units of HourlyWeatherType parameters)
+*/
 const HourlyWeather = ({
   hourlyWeather,
   hourlyUnits,

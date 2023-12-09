@@ -1,7 +1,13 @@
 import {useEffect, useRef, useState} from "react";
 
-/*Intro: This custom hook uses a ref to calculate the width and height of a DOM element.
-* Outputs: Width and height of a DOM element*/
+/*
+* This custom hook uses a ref to calculate the width and height of a DOM element.
+*
+* Outputs:
+*
+* componentWidth: weight of a DOM element
+* componentHeight : height of a DOM element
+*/
 interface UseComponentWidthResult {
     componentWidth: number;
     componentHeight: number;

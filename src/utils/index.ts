@@ -1,7 +1,12 @@
-/*Fetch the weather data using GET method
-* Inputs: tempUnit : Temperature (TemperatureUnits: enum of temperature measurement unit)
-*         latitude : number (latitude of the location
-*         longitude: number (longitude of the location)*/
+/*
+* Fetch the weather data using GET method
+*
+* Inputs:
+*
+* tempUnit : Temperature (TemperatureUnits: enum of temperature measurement unit)
+* latitude : number (latitude of the location
+* longitude: number (longitude of the location)
+*/
 export const fetchWeatherData = async (
   tempUnit: TemperatureUnits = TemperatureUnits.CELSIUS, latitude: number, longitude: number
 ) => {
@@ -167,11 +172,17 @@ export enum WeatherCodes {
 }
 
 /*This method returns the weather description and image according to the weather code and the Daytime
-* Input: weatherCode: number
-*        isDay: Boolean(Day time or not)
-* Output: weatherCode: number,
-*         description: string (weather description)
-*         image: image*/
+*
+*  Input:
+*
+* weatherCode: number
+* isDay: Boolean(Day time or not)
+*
+* Output:
+* weatherCode: number,
+* description: string (weather description)
+* image: image
+*/
 export const getWeatherInfo = (weatherCode: number, isDay: boolean = true) => {
   switch (weatherCode) {
     case WeatherCodes.CLEAR: {
