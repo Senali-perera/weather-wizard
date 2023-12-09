@@ -67,7 +67,6 @@ const WeatherView = () => {
       location.getCurrentPosition((position) => {
         setLongitude(position.coords.longitude);
         setLatitude(position.coords.latitude);
-        console.log(longitude, latitude);
       });
     }
   };
