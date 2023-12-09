@@ -14,6 +14,7 @@ import {
   HourlyWeatherType
 } from "../../utils/Types.tsx";
 
+/*Intro: This component works as the main component to display the main page of weather wizard*/
 const WeatherView = () => {
   const [currentWeather, setCurrentWeather] = useState<CurrentWeatherType>();
   const [dailyWeather, setDailyWeather] = useState<DailyWeatherType>();

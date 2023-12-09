@@ -3,6 +3,8 @@ import { getWeatherInfo } from "../../utils";
 import {DailyWeatherFormator} from "../../utils/DateTimeUtils.tsx";
 import {DayWeatherType} from "../../utils/Types.tsx";
 
+/*Intro: This component shows the weather details of one day
+* Props: weather: DayWeatherType (daily weather details of a single day)*/
 const DayCard = ({ weather }: { weather: DayWeatherType }) => {
   const { componentWidth, componentRef } = useComponentWidth();
 

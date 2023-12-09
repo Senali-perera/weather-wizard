@@ -3,6 +3,11 @@ import Highcharts from "highcharts";
 import {HourlyWeatherFormator} from "../../utils/DateTimeUtils.tsx";
 import {HourlyUnitsType, HourlyWeatherType} from "../../utils/Types.tsx";
 
+/*Intro: This component displays a chart which contains the hourly weather details
+         x-axis is datetime
+         y-axis is temperature
+* Props: hourlyWeather: HourlyWeatherType (Array of hourly weather details of a week)
+*        hourlyUnits: HourlyUnitsType (Measurement units of HourlyWeatherType parameters)*/
 const WeatherChart = ({
   hourlyWeather,
   hourlyUnits,

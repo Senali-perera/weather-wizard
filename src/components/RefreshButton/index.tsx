@@ -1,8 +1,7 @@
-interface RefreshButtonProps {
-  onClick: () => void;
-}
-
-const RefreshButton: React.FC<RefreshButtonProps> = ({ onClick }) => {
+/*Intro: This component refresh and render the weather results.
+         Return onClick method when the refresh button is clicked to re-render the results again
+* Props: onClick: void function (event handler which trigger when the user clicks the button)*/
+const RefreshButton= ({ onClick }:{onClick:()=>void}) => {
   return (
     <div className="mr-1">
       <button

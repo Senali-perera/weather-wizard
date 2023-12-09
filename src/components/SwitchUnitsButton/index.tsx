@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-interface SwitchUnitsButtonProps {
-  onToggle: () => void;
-}
-
-const SwitchUnitsButton: React.FC<SwitchUnitsButtonProps> = ({ onToggle }) => {
+/*Intro: This component give support to change the temperature measurement unit and displays the temperature according to that.
+         In this component, toggle the button to switch the measurement unit type.
+* Props: onToggle: void function (Return whether the button is toggled)*/
+const SwitchUnitsButton= ({onToggle} :{onToggle : ()=>void})=> {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {

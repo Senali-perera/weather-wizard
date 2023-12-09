@@ -1,3 +1,4 @@
+/*Current Weather time parameter is formatted to 'Weekday, Hour:Minute' */
 export const CurrentWeatherFormator=(timeStamp: string)=>{
   const parsedDateTime: Date = new Date(timeStamp); //Get the time parameter
 
@@ -21,6 +22,7 @@ export const CurrentWeatherFormator=(timeStamp: string)=>{
   return dateTime;
 }
 
+/*Daily Weather datetime parameter is formatted to 'Short-Weekday, Short-Month Day' */
 export const DailyWeatherFormator=(timeStamp: string)=>{
     const parsedDate = new Date(timeStamp);
 
@@ -39,6 +41,7 @@ export const DailyWeatherFormator=(timeStamp: string)=>{
     return formattedDate
 }
 
+/*Hourly Weather datetime parameter is formatted to 'Short-Month Day/ */
 export const HourlyWeatherFormator = (timeStamp: string)=>{
     const parsedDate = new Date(timeStamp);
 
